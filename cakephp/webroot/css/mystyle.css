@@ -1,0 +1,370 @@
+@charset "utf-8";
+
+/*----------------------------------------
+    共通
+----------------------------------------*/
+body {
+    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+header, footer {
+    width: 100%;
+    height: 100px;
+    background-color: #eee;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+a {
+    color: #333;
+}
+
+.clear {
+    clear: both;
+}
+
+input, select, textarea {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*----------------------------------------
+
+    予約入力画面（input.ctp）
+
+----------------------------------------*/
+.form-top-notice {
+    width: 80%;
+    text-align: center;
+    padding: 1.25rem 0;
+    margin: 3rem auto;
+    border: 2px solid #eee;
+}
+
+.form-top-notice h1 {
+    font-size: 2rem;
+    line-height: 2;
+}
+
+.form-top-notice p {
+    font-size: 1.1rem;
+}
+
+/* ----- reservation-form-wrapper ----- */
+.reservation-form-wrapper {
+    width: 80%;
+    margin: 3rem auto 6rem;
+}
+
+/* form {
+    width: 100%;
+} */
+
+.input-area {
+    width: 100%;
+    margin: 0.6rem 0;
+}
+
+.input-left-box, .input-right-box {
+    float: left;
+    padding: 0.25rem;
+    text-align: left;
+}
+
+.input-left-box {
+    width: 31%;
+    margin-top: 0.5rem;
+}
+
+.input-left-box span, .input-left-box p {
+    display: inline-block;
+    margin-right: 0.4rem;
+}
+
+.input-left-box span {
+    padding: 0.3rem 0.375rem;
+    background-color: #ffb9b5;
+    font-size: 1rem;
+    color: red;
+    opacity: 0.7;
+    border-radius: 0.25rem;
+}
+
+.input-left-box .any {
+    padding: 0.3rem 0.375rem;
+    background-color: #c9daf8;
+    font-size: 1rem;
+    color: blue;
+    opacity: 0.7;
+    border-radius: 0.25rem;
+}
+
+.input-left-box p {
+    font-size: 1.2rem;
+}
+
+.input-right-box {
+    width: 69%;
+    font-size: 1.1rem;
+}
+
+input, select {
+    display: inline-block;
+    width: 95%;
+    height: calc(2.25rem + 2px);
+    padding: 0.2rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+input::placeholder {
+    color: #c2c2c2;
+}
+
+textarea::placeholder {
+    color: #c2c2c2;
+    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+    font-size: 0.9rem;
+}
+
+.notice {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: rgba(0,0,0,.7);
+    margin-left: -0.5rem;
+}
+
+/* ----- inputの個別css ----- */
+.familyName {
+    float: left;
+    width: 44%
+}
+
+.givenName {
+    float: right;
+    width: 44%
+}
+
+.zipcode01, .zipcode02 {
+    width: 18.5%;
+}
+
+.prefecture {
+    width: 25%;
+}
+
+.tel {
+    width: 19%;
+}
+
+#repForm {
+    display: none;
+}
+
+/* ----- 宿泊代表者選択ボタン ----- */
+.repCheckbox {
+    display: none;
+}
+
+.repMessage {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* ✔ */
+.repMessage::before{
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0.1875rem;
+    content: '';
+    width: 1rem;
+    height: 0.375rem;
+    border: 3px solid #555555;
+    border-top-style: none;
+    border-right-style: none;
+    -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+    transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+    -webkit-transform: rotate(-45deg) scale(0, 0);
+    transform: rotate(-45deg) scale(0, 0);
+}
+
+.repCheckbox:checked + .repMessage::before {
+    -webkit-transform: rotate(-45deg) scale(1, 1);
+    transform: rotate(-45deg) scale(1, 1);
+}
+
+/* □ */
+.repMessage::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #ced4da;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+/* ----- 宿泊代表者選択ボタン(end) ----- */
+
+.checkInTime {
+    width: 25%;
+}
+
+.guestNum-box {
+    float: left;
+    width: 30%;
+}
+
+.guestNum {
+    display: inline-block;
+    width: 40%;
+}
+
+.input-left .any {
+    display: inline-block;
+    padding: 0.3rem 0.375rem;
+    background-color: #87cefa;
+    font-size: 16px;
+    color: blue;
+    opacity: 0.7;
+    border-radius: 0.25rem;
+}
+
+textarea {
+    width: 95%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.05rem;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.count-text {
+    text-align: right;
+}
+
+.count-text-color {
+    color: rgba(0,0,0,.7);
+}
+
+/* ---------- 送信ボタン ---------- */
+.submit {
+    display: block;
+    width: 50%;
+    height: 60px;
+    line-height: 1.5;
+    font-size: 1.1em;
+    background-color: #fff;
+    color: rgba(7,191,163,1);
+    border: 2px solid rgba(7,191,163,1);
+    margin: 4rem auto 3rem;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: rgba(7,191,163,1);
+    color :#fff;
+    transition: all 0.4s;
+}
+
+
+/*----------------------------------------
+
+     予約確認画面（confirm.ctp）
+
+----------------------------------------*/
+.confirm-wrapper {
+    width: 100%;
+    margin: 50px auto;
+}
+
+.confirm-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+th, td {
+    border-bottom: 1.5px solid rgba(7,191,163,1);
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+th {
+    width: 35%;
+    font-weight: normal;
+}
+
+td {
+    width: 65%;
+}
+
+.submit {
+    display: block;
+    width: 50%;
+    height: 3.5rem;
+    line-height: 1.5;
+    font-size: 1.1rem;
+    background-color: #fff;
+    color: rgba(7,191,163,1);
+    border: 2px solid rgba(7,191,163,1);
+    border-radius: 0.25rem;
+    margin: 3rem auto;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: rgba(7,191,163,1);
+    color :#fff;
+    transition: all 0.4s;
+}
+
+
+/*----------------------------------------
+    予約完了画面
+----------------------------------------*/
+.complete-message-wrapper {
+  width: 100%;
+  padding: 230px 100px;
+  text-align: center;
+}
+
+.complete-message-wrapper h1 {
+  flex: 1;
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+.complete-message-wrapper p {
+  flex: 1;
+  margin-top: 1.5rem;
+  font-size: 1.4rem;
+}
