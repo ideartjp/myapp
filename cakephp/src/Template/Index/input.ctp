@@ -4,15 +4,18 @@
             <h1>まだ予約手続きは完了していません。</h1>
             <p>ご予約情報を入力後、ページ下の「予約内容の最終確認へ進む」ボタンを押してください。</p>
         </div>
-        <div class="reservation-form-wrapper">
-            <?php if(isset($errors)): ?>
+        <div class="error-texts">
+            <?php if (isset($errors)): ?>
                 <ul>
                     <?php foreach($errors as $error): ?>
-                        <li><?= var_dump($error); ?></li>
-                        <!-- <li><?=$error;?></li> -->
-                    <?php endforeach;?>
+                        <?php foreach($error as $message): ?>
+                            <span class="error_msg"><?= $message ?></span><br>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </ul>
             <?php endif; ?>
+        </div>
+        <div class="reservation-form-wrapper">
             <?= $this->Form->create(null, ['url' => ['controller' => 'index', 'action' => 'confirm']]) ?>
 
                 <div class="input-area">
