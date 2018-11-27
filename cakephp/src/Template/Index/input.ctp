@@ -4,8 +4,18 @@
             <h1>まだ予約手続きは完了していません。</h1>
             <p>ご予約情報を入力後、ページ下の「予約内容の最終確認へ進む」ボタンを押してください。</p>
         </div>
+        <div class="error-texts">
+            <?php if (isset($errors)): ?>
+                <ul>
+                    <?php foreach($errors as $error): ?>
+                        <?php foreach($error as $message): ?>
+                            <span class="error_msg"><?= $message ?></span><br>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </div>
         <div class="reservation-form-wrapper">
-
             <?= $this->Form->create(null, ['url' => ['controller' => 'index', 'action' => 'confirm']]) ?>
 
                 <div class="input-area">
@@ -71,7 +81,7 @@
                 </div>
                 <div class="input-area">
                     <div class="input-left-box">
-                        <span>必須</span>
+                        <span class="any">任意</span>
                         <p>マンション名・ビル名</p>
                     </div>
                     <div class="input-right-box">
@@ -108,7 +118,7 @@
                     </div>
                     <div class="input-right-box">
                         <label>
-                            <input class="repCheckbox" type="checkbox" name="repStay" id="repCheckbox" checked value="">
+                            <input class="repCheckbox" type="checkbox" name="actually" id="repCheckbox" checked value="1">
                             <span class="repMessage">上記の予約者と同じ</span>
                         </label>
                         <p class="notice">（代表者が異なる場合はチェックを外し、情報を入力してください。）</p>
@@ -178,7 +188,7 @@
                         </div>
                         <div class="input-area">
                             <div class="input-left-box">
-                                <span>必須</span>
+                                <span class="any">任意</span>
                                 <p>マンション名・ビル名</p>
                             </div>
                             <div class="input-right-box">

@@ -6,7 +6,7 @@
         <div class="confirm-form">
 
             <?= $this->Form->create(null, ['url' => ['controller' => 'index', 'action' => 'register']]) ?>
-
+            
                 <table>
                     <tr class="form-item">
                         <th>氏名</th>
@@ -51,7 +51,7 @@
                     </tr>
                     <tr class="form-item">
                         <th>住所</th>
-                        <td><?= $rpref . " " . $data['repAddress01'] . " " . $data['repAddress02']; ?></td>
+                        <td><?= $rep_prefecture_name . " " . $data['repAddress01'] . " " . $data['repAddress02']; ?></td>
                     </tr>
                     <tr class="form-item">
                         <th>電話番号</th>
@@ -64,7 +64,7 @@
                     <!-- end of $rep -->
                     <tr class="form-item">
                         <th>チェックイン予定時刻</th>
-                        <td><?= $cin; ?></td>
+                        <td><?= $checkin_time; ?></td>
                     </tr>
                     <tr class="form-item">
                         <th>人数内訳（大人）</th>

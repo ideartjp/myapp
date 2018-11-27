@@ -19,6 +19,8 @@ class IndexController extends AppController
         $this->set('checkin', $checkin);
     }
 
+
+
     public function confirm()
     {
         $data = $this->request->getData();
@@ -49,11 +51,11 @@ class IndexController extends AppController
         $data = $this->request->getSession()->read('data');
 
         // モデルを呼び出す
-        $usersTable = TableRegistry::get('Users');
+        $usersTable        = TableRegistry::get('Users');
         $reservationsTable = TableRegistry::get('Reservations');
 
         // エンティティクラスを作成
-        $users = $usersTable->newEntity();
+        $users        = $usersTable->newEntity();
         $reservations = $reservationsTable->newEntity();
 
         // 登録するデータをプロパティに入れる
@@ -91,11 +93,11 @@ class IndexController extends AppController
         // データ保存
         $usersResult = $usersTable->save($users);
 
-        $reservations->user_id       = $users->id;
-        $reservations->checkin_time  = $data['checkInTime'];
-        $reservations->num_mr        = $data['guestNumMr'];
-        $reservations->num_mrs       = $data['guestNumMrs'];
-        $reservations->contact       = $data['contact'];
+        $reservations->user_id      = $users->id;
+        $reservations->checkin_time = $data['checkInTime'];
+        $reservations->num_mr       = $data['guestNumMr'];
+        $reservations->num_mrs      = $data['guestNumMrs'];
+        $reservations->contact      = $data['contact'];
 
         // データ保存
         $reservationsResult = $reservationsTable->save($reservations);

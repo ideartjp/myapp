@@ -1,7 +1,7 @@
 $(function() {
 
     // 宿泊代表者用のフォームslideDown
-    $('input[name="repStay"]').change(function() {
+    $('input[name="actually"]').change(function() {
         var prop = $('#repCheckbox').prop('checked');
         if (!prop) {
             $('#repForm').slideDown(500);

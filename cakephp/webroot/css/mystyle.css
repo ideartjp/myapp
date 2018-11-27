@@ -288,6 +288,31 @@ textarea {
     transition: all 0.4s;
 }
 
+/* ----- バリデーションエラーのメッセージ ----- */
+.error-texts {
+    display: flex;
+    justify-content: center;
+}
+
+.error-texts ul {
+    width: 50%;
+    padding: 1.5rem;
+    border: 2.5px solid red;
+    border-radius: 0.25rem;
+    /* margin: 1.5rem 0; */
+}
+
+.error_msg {
+    color: red;
+}
+
+.error_msg::before {
+    content: '●';
+    font-size: 0.7rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.25rem;
+}
+
 
 /*----------------------------------------
 
